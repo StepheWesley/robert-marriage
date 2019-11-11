@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Steve Marriage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #29234A; /* Green */
+    color: #ffffff;
+  }
+ 
+  .container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+
+  @font-face {
+    font-family: aaBold;
+    src: url('AdobeArabic-Bold.otf') format("opentype");;
+    }
+    @font-face {
+    font-family: aaBoldItalic;
+    src: url('AdobeArabic-BoldItalic.otf') format("opentype");;
+    }
+    @font-face {
+    font-family: aaRegular;
+    src: url('AdobeArabic-Regular.otf') format("opentype");;
+    }
+    @font-face {
+    font-family: candle;
+    src: url('Candlescript_Demo_Version.otf') format("opentype");;
+    }
+    #aabold {
+        font-family: aaBold;
+    }
+    #aaBoldItalic {
+        font-family: aaBoldItalic;
+    }
+    #aaRegular {
+        font-family: aaRegular;
+    }
+    #candle {
+        font-family: candle;
+    }
+    li {
+    display: inline-block;
+    font-size: 1.5em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+    }
+
+        li span {
+        display: block;
+        font-size: 4.5rem;
+        }
+  </style>
+</head>
+<body>
+
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h1 class="margin" id="candle" style="font-size:90px">Stephen Sherley</h1>
+  <img src="images/cc.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350"><br />
+  <img src="images/saveTheDate.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+  <!-- <p id="aabold" style="font-size:40px">5th January </p>
+  <p id="aaBoldItalic" style="font-size:40px">Thrusday </p> -->
+
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-1 text-center">
+        <!-- <h1 id="head">Countdown to my Marriage:</h1> -->
+        <ul>
+          <li style="font-weight:bolder"><span id="days" style="font-weight:bolder"></span>days</li>
+          <li style="font-weight:bolder"><span id="hours" style="font-weight:bolder"></span>Hours</li>
+          <li style="font-weight:bolder"><span id="minutes" style="font-weight:bolder"></span>Min</li>
+          <li style="font-weight:bolder"><span id="seconds" style="font-weight:bolder"></span>Sec</li>
+        </ul>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-1 text-center">    
+ <!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+    
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998164.1187799368!2d76.63955534608453!3d11.997715145402195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859a5184f96a7%3A0xdb7b03453e4e69c2!2sCSI%20ALL%20SOULS%E2%80%99%20CHURCH!5e0!3m2!1sen!2sin!4v1573478412947!5m2!1sen!2sin" 
+        width="90%" 
+        height="50%" 
+        frameborder="0" 
+        style="border:0;" allowfullscreen=""></iframe>
+  </div>
+  <div class="container-fluid bg-1 text-center">
+    <img src="images/stevesher.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350"><br />
+    <!-- <p id="aabold" style="font-size:40px">5th January </p>
+    <p id="aaBoldItalic" style="font-size:40px">Thrusday </p> -->
+  
+  </div>
+  
+  <!--Google Maps-->
+</div>
+
+
+
+<script>
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+let countDown = new Date('Jan 05, 2020 17:06:00').getTime(),
+    x = setInterval(function() {
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+        document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      
+    //   do something later when date is reached
+      if (distance <= 0) {
+       clearInterval(x);
+       var para = document.createElement("h1");
+        var node = document.createTextNode("All ready for the first night");
+        para.appendChild(node);
+      }
+
+    }, second)</script>
+</body>
+</html>
